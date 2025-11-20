@@ -22,7 +22,7 @@ def clean_word(w):
     return w
 
 
-def extract_lyrics():
+def extracted_lyrics():
     with open("rap_god/rapgodlyrics.txt", "r") as f:
         text = f.read().lower()
 
@@ -31,7 +31,7 @@ def extract_lyrics():
     return [w for w in cleaned if w]
 
 
-def make_python_file(words):
+def python_file_from(words):
     with open("source.py", "w") as f:
         f.write(
             "def beginning(x):\n"
@@ -44,4 +44,4 @@ def make_python_file(words):
 
 
 if __name__ == "__main__":
-    make_python_file(extract_lyrics())
+    python_file_from(extracted_lyrics())
