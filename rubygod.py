@@ -26,7 +26,7 @@ def clean_word_ruby(w):
     return w
 
 
-def extract_lyrics():
+def extracted_lyrics():
     with open("rap_god/rapgodlyrics.txt", "r") as f:
         text = f.read().lower()
 
@@ -35,7 +35,7 @@ def extract_lyrics():
     return [w for w in cleaned if w]
 
 
-def make_ruby_file(words):
+def ruby_file_from(words):
     with open("source.rb", "w") as f:
         f.write(
             "def beginning(x)\n"
@@ -49,4 +49,4 @@ def make_ruby_file(words):
 
 
 if __name__ == "__main__":
-    make_ruby_file(extract_lyrics())
+    print(ruby_file(extract_lyrics()))
