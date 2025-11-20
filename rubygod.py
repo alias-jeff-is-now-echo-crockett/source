@@ -11,16 +11,16 @@ RUBY_KEYWORDS = {
 }
 
 def clean_word_ruby(w):
-    w = re.sub(r'[^a-z0-9]', '', w.lower())
+    w = re.sub(r'[^a-z0-9]', '', w.lower()) #remove all non-word characters
     if not w:
         return None
 
     # starts with number → prefix
-    if w[0].isdigit():
+    if w[0].isdigit(): #if the first character is a number
         w = "w_" + w
 
     # Ruby keywords → add underscore
-    if w in (kw.lower() for kw in RUBY_KEYWORDS):
+    if w in (kw.lower() for kw in RUBY_KEYWORDS): #if w is a lowercase ruby keyword
         w = w + "_"
 
     return w
